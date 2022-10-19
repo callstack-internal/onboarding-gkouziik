@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { HomeContainer, HomeDummyTitle } from './Home.style';
+import { weatherApiMocks } from '../../../__mocks__/weatherAPIMocks';
+import { Divider } from '../../shared';
+import { HomeContainer } from './Home.style';
+import WeatherCard from './components/WeatherCard';
 
 /**
  * Component that renders the Landing Screen of the weather application
@@ -8,7 +11,8 @@ import { HomeContainer, HomeDummyTitle } from './Home.style';
 const Home: React.FC = () => {
   return (
     <HomeContainer>
-      <HomeDummyTitle>Hello</HomeDummyTitle>
+      <WeatherCard weatherApiData={weatherApiMocks[0]} />
+      <Divider />
     </HomeContainer>
   );
 };
