@@ -1,6 +1,5 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { MainNavigator } from './src/navigators';
@@ -19,9 +18,7 @@ const App: React.FC = () => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <NavigationContainer>
-        <MainNavigator />
-      </NavigationContainer>
+      <MainNavigator />
     </SafeAreaView>
   );
 };

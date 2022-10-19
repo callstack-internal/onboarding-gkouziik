@@ -6,7 +6,6 @@ type TextProps = {
 };
 
 export const bodyTextRegular = ({ bold, center }: TextProps) => css`
-  font-family: Work Sans;
   font-style: normal;
   font-weight: ${bold ? 'bold' : 'normal'};
   font-size: 14px;
@@ -16,7 +15,6 @@ export const bodyTextRegular = ({ bold, center }: TextProps) => css`
 `;
 
 export const bodyTextLarge = ({ bold, center }: TextProps) => css`
-  font-family: Work Sans;
   font-style: normal;
   font-weight: ${bold ? 'bold' : 'normal'};
   font-size: 18px;

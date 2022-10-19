@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Dimensions, Text, View } from 'react-native';
+import { Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { WeatherApi } from '../../../typings/weatherApi';
 import { BodyTextLarge, BodyTextRegular } from '../../../shared';
@@ -12,18 +13,35 @@ import {
 
 type Props = {
   weatherApiData: WeatherApi;
+  disabled?: Boolean;
 };
 
 /**
  * Generic component that renders the weather card along with the details
  * in the Home Screen
  * @param weatherApiData {@see WeatherApi}
+ * @param disabled
  */
-const WeatherCard: React.FC<Props> = ({ weatherApiData }) => {
+const WeatherCard: React.FC<Props> = ({ weatherApiData, disabled = false }) => {
   const { town, status, temperature } = weatherApiData;
+  const navigation = useNavigation();
+
   const { height, width } = Dimensions.get('window');
+
   return (
-    <WeatherCardTouchable width={width} height={height / 8}>
+    <WeatherCardTouchable
+      width={width}
+      height={height / 8}
+      disabled={disabled}
+      onPress={() => {
+        navigation.navigate(
+          'Details' as never,
+          {
+            weatherApiData: weatherApiData,
+          } as never,
+        );
+      }}
+    >
       <WeatherCardContentWrapper>
         <CityAndStatusDetails>
           <BodyTextLarge bold>{town}</BodyTextLarge>
