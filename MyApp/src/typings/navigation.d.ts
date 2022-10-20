@@ -1,7 +1,7 @@
-import { WeatherApi } from './weatherApi';
+import { WeatherData } from './weatherApi';
 
 export type RootStackParamList = {
-  Details: { weatherApiData: WeatherApi };
+  Details: { weatherApiData: WeatherData };
 };
 
 declare global {
