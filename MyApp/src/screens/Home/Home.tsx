@@ -22,9 +22,9 @@ const Home: React.FC = () => {
   const listLoadingComponent = React.useMemo(
     () =>
       isLoading ? (
-        <StyledActivityIndicator />
+        <StyledActivityIndicator testID={'indicatorTestId'} />
       ) : error ? (
-        <Text>Something went wrong :(</Text>
+        <Text testID={'errorTestID'}>Something went wrong :(</Text>
       ) : null,
     [isLoading, error],
   );

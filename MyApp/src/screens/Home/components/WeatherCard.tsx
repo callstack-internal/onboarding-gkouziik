@@ -28,6 +28,7 @@ const WeatherCard: React.FC<Props> = ({ weatherApiData, disabled = false }) => {
 
   return (
     <WeatherCardTouchable
+      testID={'cardButtonID'}
       width={width}
       height={height / 8}
       disabled={disabled}

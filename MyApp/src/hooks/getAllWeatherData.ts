@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { APP_ID, CITIES_LIST, GET_WEATHER_DATA_URL } from '../shared/constants';
 import { WeatherApiT } from '../typings/weatherApi';
 
-export const QUERY_PARAMS = new URLSearchParams({
+const QUERY_PARAMS = new URLSearchParams({
   appid: APP_ID,
   id: CITIES_LIST.join(','),
   units: 'metric',
