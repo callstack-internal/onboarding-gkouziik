@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native';
+import { ActivityIndicator } from 'react-native';
 
 type TextProps = {
   bold?: boolean;
@@ -37,4 +38,10 @@ export const Divider = styled.View`
   width: 100%;
   height: 2px;
   border: 1px solid grey;
+`;
+
+export const StyledActivityIndicator = styled(ActivityIndicator).attrs({
+  size: 'large',
+})`
+  margin-top: 20px;
 `;

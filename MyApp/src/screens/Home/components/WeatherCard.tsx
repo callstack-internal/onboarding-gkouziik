@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { WeatherApi } from '../../../typings/weatherApi';
+import { WeatherData } from '../../../typings/weatherApi';
 import { BodyTextLarge, BodyTextRegular } from '../../../shared';
 import {
   CityAndStatusDetails,
@@ -12,7 +12,7 @@ import {
 } from './WeatherCard.style';
 
 type Props = {
-  weatherApiData: WeatherApi;
+  weatherApiData: WeatherData;
   disabled?: Boolean;
 };
 
@@ -23,9 +23,7 @@ type Props = {
  * @param disabled
  */
 const WeatherCard: React.FC<Props> = ({ weatherApiData, disabled = false }) => {
-  const { town, status, temperature } = weatherApiData;
   const navigation = useNavigation();
-
   const { height, width } = Dimensions.get('window');
 
   return (
@@ -44,11 +42,11 @@ const WeatherCard: React.FC<Props> = ({ weatherApiData, disabled = false }) => {
     >
       <WeatherCardContentWrapper>
         <CityAndStatusDetails>
-          <BodyTextLarge bold>{town}</BodyTextLarge>
-          <BodyTextRegular>{status}</BodyTextRegular>
+          <BodyTextLarge bold>{weatherApiData.name}</BodyTextLarge>
+          <BodyTextRegular>{weatherApiData.weather[0].main}</BodyTextRegular>
         </CityAndStatusDetails>
         <TemperatureTag>
-          <BodyTextLarge bold>{temperature}</BodyTextLarge>
+          <BodyTextLarge bold>{`${weatherApiData.main.temp}F`}</BodyTextLarge>
         </TemperatureTag>
       </WeatherCardContentWrapper>
     </WeatherCardTouchable>
