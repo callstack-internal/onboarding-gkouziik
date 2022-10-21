@@ -12,6 +12,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		20E4DAEC2902B6ED006D6D1A /* MyNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E4DAEB2902B6EC006D6D1A /* MyNotification.m */; };
+		20E4DAEF2902C2C3006D6D1A /* RNCKCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E4DAEE2902C2C3006D6D1A /* RNCKCustomButton.m */; };
+		20E4DAF22902C331006D6D1A /* RNCKCustomViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E4DAF12902C331006D6D1A /* RNCKCustomViewManager.m */; };
 		7699B88040F8A987B510C191 /* libPods-MyApp-MyAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MyApp-MyAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -37,6 +40,12 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-MyApp-MyAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyApp-MyAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20E4DAEA2902B6C7006D6D1A /* MyNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNotification.h; sourceTree = "<group>"; };
+		20E4DAEB2902B6EC006D6D1A /* MyNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNotification.m; sourceTree = "<group>"; };
+		20E4DAED2902C299006D6D1A /* RNCKCustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCKCustomButton.h; sourceTree = "<group>"; };
+		20E4DAEE2902C2C3006D6D1A /* RNCKCustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCKCustomButton.m; sourceTree = "<group>"; };
+		20E4DAF02902C30A006D6D1A /* RNCKCustomButtonViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCKCustomButtonViewManager.h; sourceTree = "<group>"; };
+		20E4DAF12902C331006D6D1A /* RNCKCustomViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCKCustomViewManager.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-MyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp.debug.xcconfig"; path = "Target Support Files/Pods-MyApp/Pods-MyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-MyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp.release.xcconfig"; path = "Target Support Files/Pods-MyApp/Pods-MyApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-MyApp-MyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp-MyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MyApp-MyAppTests/Pods-MyApp-MyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +101,12 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				20E4DAEA2902B6C7006D6D1A /* MyNotification.h */,
+				20E4DAEB2902B6EC006D6D1A /* MyNotification.m */,
+				20E4DAED2902C299006D6D1A /* RNCKCustomButton.h */,
+				20E4DAEE2902C2C3006D6D1A /* RNCKCustomButton.m */,
+				20E4DAF02902C30A006D6D1A /* RNCKCustomButtonViewManager.h */,
+				20E4DAF12902C331006D6D1A /* RNCKCustomViewManager.m */,
 			);
 			name = MyApp;
 			sourceTree = "<group>";
@@ -412,8 +427,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20E4DAEC2902B6ED006D6D1A /* MyNotification.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				20E4DAEF2902C2C3006D6D1A /* RNCKCustomButton.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				20E4DAF22902C331006D6D1A /* RNCKCustomViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

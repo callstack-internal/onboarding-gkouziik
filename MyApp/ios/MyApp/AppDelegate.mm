@@ -16,6 +16,10 @@
 
 #import <react/config/ReactNativeConfig.h>
 
+
+
+#import <UserNotifications/UserNotifications.h>
+
 static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface AppDelegate () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
@@ -34,6 +38,8 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   RCTAppSetupPrepareApp(application);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  
+  [self registerForRemoteNotifications];
 
 #if RCT_NEW_ARCH_ENABLED
   _contextContainer = std::make_shared<facebook::react::ContextContainer const>();
@@ -58,6 +64,29 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+#define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+- (void)registerForRemoteNotifications {
+  if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
+      if (!error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [[UIApplication sharedApplication] registerForRemoteNotifications];
+        });
+      }
+    }];
+  }
+  else {
+    // Code for old versions
+  }
+}
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+  completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
 }
 
 /// This method controls whether the `concurrentRoot`feature of React18 is turned on or off.

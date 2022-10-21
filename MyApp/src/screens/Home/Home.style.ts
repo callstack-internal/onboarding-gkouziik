@@ -16,5 +16,6 @@ export const HomeContainer = styled.View`
 export const CustomButton = styled(CustomNativeButton)<CustomButtonProp>`
   height: 70px;
   align-items: center;
+  border-radius: 20px;
   justify-content: center;
 `;
