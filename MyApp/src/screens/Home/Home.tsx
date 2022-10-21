@@ -4,20 +4,16 @@ import { FlatList, ListRenderItem, Text } from 'react-native';
 import { Divider, StyledActivityIndicator } from '../../shared';
 import { WeatherData } from '../../typings/weatherApi';
 import { useGetAllWeatherData } from '../../hooks/getAllWeatherData';
-import { HomeContainer } from './Home.style';
+import NotificationInterface from '../../shared/notifications';
+import { CustomButton, HomeContainer } from './Home.style';
 import WeatherCard from './components/WeatherCard';
 
 /**
  * Component that renders the Landing Screen of the weather application
  */
 const Home: React.FC = () => {
-  const {
-    data,
-    isRefetching,
-    error,
-    refetch,
-    isLoading,
-  } = useGetAllWeatherData();
+  const { data, isRefetching, error, refetch, isLoading } =
+    useGetAllWeatherData();
 
   const listLoadingComponent = React.useMemo(
     () =>
@@ -33,7 +29,6 @@ const Home: React.FC = () => {
     ({ item }) => <WeatherCard weatherApiData={item} />,
     [data],
   );
-
   return (
     <HomeContainer>
       <FlatList
@@ -47,6 +42,16 @@ const Home: React.FC = () => {
         showsVerticalScrollIndicator={false}
         numColumns={1}
         ItemSeparatorComponent={() => <Divider />}
+      />
+      <CustomButton
+        onPress={() => {
+          NotificationInterface.showNativeNotification(
+            'An Amazing Title',
+            'An Amazing Description',
+          );
+        }}
+        enabled={true}
+        text={'Show Notification'}
       />
     </HomeContainer>
   );
