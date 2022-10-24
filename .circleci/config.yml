@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node14
+      - image: .circleci/node14
     working_directory: ~/MyApp
     steps:
       - checkout
