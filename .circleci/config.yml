@@ -2,8 +2,9 @@ version: 2
 
 jobs:
   build:
+    working_directory: ~/MyApp
     docker:
-      - image: cimg/node:14.17.1
+      - image: circleci/node:14.17.1
     steps:
       - checkout
       - restore_cache:
