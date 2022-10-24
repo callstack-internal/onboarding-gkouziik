@@ -3,6 +3,7 @@ import React from 'react';
 import '@testing-library/jest-native/extend-expect';
 import { fireEvent, render, RenderAPI } from '@testing-library/react-native';
 import { ReactTestInstance } from 'react-test-renderer';
+import { QueryObserverLoadingResult } from '@tanstack/react-query';
 
 import { MainNavigator } from '../../src/navigators';
 import { WeatherApiT } from '../../src/typings/weatherApi';
@@ -53,12 +54,15 @@ const MockData: WeatherApiT = {
   ],
 };
 
-jest.spyOn(useWeather, 'useGetAllWeatherData').mockImplementation(() => ({
-  data: { ...MockData },
-  isLoading: false,
-  isRefetching: false,
-  error: null,
-}));
+jest.spyOn(useWeather, 'useGetAllWeatherData').mockImplementation(
+  (): QueryObserverLoadingResult<WeatherApiT | undefined, Error> => ({
+    // @ts-ignore
+    data: { ...MockData },
+    isLoading: true,
+    isRefetching: false,
+    error: null,
+  }),
+);
 
 describe('Home Screen', () => {
   let queries: RenderAPI;
