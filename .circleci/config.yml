@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   build:
-    working_directory: ~/MyApp
+    working_directory: ./MyApp
     docker:
       - image: circleci/node:14.17.1
     steps:
