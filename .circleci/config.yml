@@ -4,7 +4,6 @@ jobs:
   build:
     docker:
       - image: cimg/node:14.17.1
-    working_directory: ~/MyApp/.
     steps:
       - checkout
       - restore_cache:
