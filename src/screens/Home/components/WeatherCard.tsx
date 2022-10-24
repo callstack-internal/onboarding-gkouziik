@@ -39,8 +39,7 @@ const WeatherCard: React.FC<Props> = ({ weatherApiData, disabled = false }) => {
             weatherApiData: weatherApiData,
           } as never,
         );
-      }}
-    >
+      }}>
       <WeatherCardContentWrapper>
         <CityAndStatusDetails>
           <BodyTextLarge bold>{weatherApiData.name}</BodyTextLarge>
