@@ -53,7 +53,7 @@ const MockData: WeatherApiT = {
   ],
 };
 
-jest.spyOn(useWeather, 'useGetAllWeatherData').mockImplementation(() => ({
+jest.spyOn(useWeather, 'useGetAllWeatherData').mockImplementation((): any => ({
   data: { ...MockData },
   isLoading: false,
   isRefetching: false,

@@ -27,7 +27,7 @@ const Home: React.FC = () => {
 
   const renderItem: ListRenderItem<WeatherData> = React.useCallback(
     ({ item }) => <WeatherCard weatherApiData={item} />,
-    [data],
+    [],
   );
   return (
     <HomeContainer>
